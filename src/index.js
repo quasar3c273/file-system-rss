@@ -4,6 +4,7 @@ import { getUserName } from "./commands/getUserName.js";
 import sayHi from "./utils/sayHi.js";
 import printPath from "./utils/printPath.js";
 import getConsoleCommand from "./commands/getConsoleCommand.js";
+import commandExecution from "./commands/commandExecution.js";
 
 let userName
 let pathNow
@@ -22,8 +23,8 @@ const fileSystem = () => {
   process.stdin.on('data', (chunk) => {
     const { command, commandArgs } = getConsoleCommand(chunk.toString())
 
-    console.log('command', command)
-    console.log('commandArgs', commandArgs)
+    commandExecution({commandName: command, argsArray: commandArgs})
+      .then(r => console.log('r', r))
   });
 }
 
