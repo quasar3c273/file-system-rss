@@ -20,9 +20,9 @@ const fileSystem = () => {
   startProject()
 
   process.stdin.on('data', (chunk) => {
-    const { command, commandArgs } = getConsoleCommand(chunk.toString())
+    // const command = getConsoleCommand(chunk.toString())
 
-    commandExecution({command, commandArgs, pathNow})
+    commandExecution(chunk.toString())
       .then(() => printPath(pathNow))
   });
 }

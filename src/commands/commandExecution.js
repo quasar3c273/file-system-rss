@@ -1,25 +1,21 @@
-import {upPath, getTargetPath} from "./path/upPath.js"
-import {pathNow, setPathNow} from "./store/store.js"
+import {upPath} from "./path/upPath.js"
+import {pathNow} from "./store/store.js"
 import lsCommand from "./ls.js";
-const ERROR_INPUT = 'Invalid input'
-const ERROR_OPERATION = 'Operation failed'
+import cdFunction from "./path/cd.js";
+import {ERROR_INPUT} from "../consts.js";
 
-const commandExecution = async ({ command, commandArgs }) => {
+const commandExecution = async (inputConsole) => {
+  const command = inputConsole.trim().split(' ')[0]
+
   switch (command) {
     case 'up': {
       await upPath()
+
       break;
     }
     case 'cd': {
-      if (commandArgs.length !== 1) throw new Error(ERROR_INPUT)
+      await cdFunction(inputConsole)
 
-      const targetPath = getTargetPath(pathNow, commandArgs[0])
-
-      if (targetPath) {
-        setPathNow(targetPath)
-      } else {
-        throw new Error(ERROR_OPERATION);
-      }
       break;
     }
     case 'ls': {

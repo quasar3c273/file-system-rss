@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import printError from "../utils/printError.js";
 
 async function lsCommand(directoryPath) {
   try {
@@ -25,7 +26,7 @@ async function lsCommand(directoryPath) {
 
     console.table(tableData);
   } catch (error) {
-    console.error(`Error reading directory: ${error}`);
+    printError(`Error reading directory: ${error}`)
   }
 }
 

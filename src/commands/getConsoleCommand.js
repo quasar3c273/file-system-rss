@@ -1,9 +1,7 @@
 const getConsoleCommand = (input) => {
-  const inputTrim = input.trim().split(/\s+/)
-  const command = inputTrim[0]
-  const commandArgs = inputTrim.slice(1)
+  const command = input.trim().split(' ')[0]
 
-  return { command, commandArgs }
+  return command
 }
 
 export default getConsoleCommand
