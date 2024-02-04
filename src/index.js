@@ -5,13 +5,12 @@ import sayHi from "./utils/sayHi.js";
 import printPath from "./utils/printPath.js";
 import getConsoleCommand from "./commands/getConsoleCommand.js";
 import commandExecution from "./commands/commandExecution.js";
+import { pathNow } from "./commands/store/store.js";
 
 let userName
-let pathNow
 
 const startProject = () => {
   userName = getUserName()
-  pathNow = homedir()
 
   sayHi(userName)
   printPath(pathNow)
@@ -23,8 +22,8 @@ const fileSystem = () => {
   process.stdin.on('data', (chunk) => {
     const { command, commandArgs } = getConsoleCommand(chunk.toString())
 
-    commandExecution({command, commandArgs})
-      .then(r => console.log('r', r))
+    commandExecution({command, commandArgs, pathNow})
+      .then(() => printPath(pathNow))
   });
 }
 
