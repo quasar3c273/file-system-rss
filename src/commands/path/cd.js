@@ -1,12 +1,12 @@
 import {stat, access} from 'fs/promises'
 
-import {pathNow, setPathNow} from "../store/store.js";
+import {setPathNow} from "../store/store.js";
 import {ERROR_OPERATION} from "../../consts.js";
 import {getTargetPath} from "./upPath.js";
 
 const cdFunction = async (command) => {
   const newPath = command.trim().replace('cd ', '')
-  const targetPath = getTargetPath(pathNow, newPath)
+  const targetPath = getTargetPath(newPath)
 
   try {
     const stats = await stat(targetPath)

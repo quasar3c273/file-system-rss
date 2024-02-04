@@ -3,6 +3,7 @@ import {pathNow} from "./store/store.js"
 import lsCommand from "./ls.js";
 import cdFunction from "./path/cd.js";
 import {ERROR_INPUT} from "../consts.js";
+import catCommand from "./operationsWithFiles/cat.js";
 
 const commandExecution = async (inputConsole) => {
   const command = inputConsole.trim().split(' ')[0]
