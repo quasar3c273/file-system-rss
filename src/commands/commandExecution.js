@@ -4,6 +4,7 @@ import lsCommand from "./ls.js";
 import cdFunction from "./path/cd.js";
 import {ERROR_INPUT} from "../consts.js";
 import catCommand from "./operationsWithFiles/cat.js";
+import create from "./operationsWithFiles/add.js";
 
 const commandExecution = async (inputConsole) => {
   const command = inputConsole.trim().split(' ')[0]
@@ -21,6 +22,17 @@ const commandExecution = async (inputConsole) => {
     }
     case 'ls': {
       await lsCommand(pathNow)
+
+      break;
+    }
+    case 'cat': {
+      await catCommand(inputConsole)
+
+      break;
+    }
+    case 'add': {
+      await create(inputConsole);
+
       break;
     }
     default: {
