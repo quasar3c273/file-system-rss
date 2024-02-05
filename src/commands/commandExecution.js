@@ -11,6 +11,7 @@ import mvFunction from "./operationsWithFiles/mv.js";
 import rmFunction from "./operationsWithFiles/rm.js";
 import getOSInfo from "./osOperations/index.js";
 import printError from "../utils/printError.js";
+import calculateHash from "./hash/calcHash.js";
 
 const commandExecution = async (inputConsole) => {
   const command = inputConsole.trim().split(' ')[0]
@@ -51,6 +52,10 @@ const commandExecution = async (inputConsole) => {
     // Operating system
     case 'os':
       await getOSInfo(inputConsole);
+      break;
+    // hash
+    case 'hash':
+      await calculateHash(inputConsole);
       break;
     default: {
       printError(ERROR_INPUT)
