@@ -8,6 +8,7 @@ import create from "./operationsWithFiles/add.js";
 import rnFunction from "./operationsWithFiles/rn.js";
 import cpFunction from "./operationsWithFiles/cp.js";
 import mvFunction from "./operationsWithFiles/mv.js";
+import rmFunction from "./operationsWithFiles/rm.js";
 
 const commandExecution = async (inputConsole) => {
   const command = inputConsole.trim().split(' ')[0]
@@ -41,6 +42,9 @@ const commandExecution = async (inputConsole) => {
       break;
     case 'mv':
       await mvFunction(inputConsole);
+      break;
+    case 'rm':
+      await rmFunction(inputConsole);
       break;
     // Operating system
     default: {
