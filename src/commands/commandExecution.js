@@ -9,6 +9,8 @@ import rnFunction from "./operationsWithFiles/rn.js";
 import cpFunction from "./operationsWithFiles/cp.js";
 import mvFunction from "./operationsWithFiles/mv.js";
 import rmFunction from "./operationsWithFiles/rm.js";
+import getOSInfo from "./osOperations/index.js";
+import printError from "../utils/printError.js";
 
 const commandExecution = async (inputConsole) => {
   const command = inputConsole.trim().split(' ')[0]
@@ -47,8 +49,11 @@ const commandExecution = async (inputConsole) => {
       await rmFunction(inputConsole);
       break;
     // Operating system
+    case 'os':
+      await getOSInfo(inputConsole);
+      break;
     default: {
-      throw new Error(ERROR_INPUT);
+      printError(ERROR_INPUT)
     }
   }
 }
