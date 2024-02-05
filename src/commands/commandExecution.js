@@ -5,6 +5,7 @@ import cdFunction from "./path/cd.js";
 import {ERROR_INPUT} from "../consts.js";
 import catCommand from "./operationsWithFiles/cat.js";
 import create from "./operationsWithFiles/add.js";
+import rnFunction from "./operationsWithFiles/rn.js";
 
 const commandExecution = async (inputConsole) => {
   const command = inputConsole.trim().split(' ')[0]
@@ -35,6 +36,10 @@ const commandExecution = async (inputConsole) => {
 
       break;
     }
+    case 'rn':
+      await rnFunction(inputConsole);
+
+      break;
     default: {
       throw new Error(ERROR_INPUT);
     }
