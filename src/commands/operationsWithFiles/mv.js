@@ -24,7 +24,7 @@ const mvFunction = async (command) => {
 
         readStream.on('end', () => {
             unlink(fromFilePath, (err) => {
-                if (err) throw err;
+                if (err) printError(err)
             });
         });
     } catch (err) {
