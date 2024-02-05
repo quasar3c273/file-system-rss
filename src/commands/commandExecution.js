@@ -12,6 +12,9 @@ import rmFunction from "./operationsWithFiles/rm.js";
 import getOSInfo from "./osOperations/index.js";
 import printError from "../utils/printError.js";
 import calculateHash from "./hash/calcHash.js";
+import compressFunction from "./zip/compress.js";
+import decompressFunction from "./zip/decompress.js";
+import {finishFunction} from "../index.js";
 
 const commandExecution = async (inputConsole) => {
   const command = inputConsole.trim().split(' ')[0]
@@ -56,6 +59,15 @@ const commandExecution = async (inputConsole) => {
     // hash
     case 'hash':
       await calculateHash(inputConsole);
+      break;
+    case 'compress':
+      await compressFunction(inputConsole);
+      break;
+    case 'decompress':
+      await decompressFunction(inputConsole);
+      break;
+    case '.exit':
+      finishFunction()
       break;
     default: {
       printError(ERROR_INPUT)
