@@ -16,7 +16,7 @@ const startProject = () => {
 
 export const finishFunction = () => {
   printInfo(`Thank you for using File Manager, ${userName}, goodbye!`)
-  process.exit(0);
+  process.exit(0)
 }
 
 const fileSystem = () => {
