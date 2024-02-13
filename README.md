@@ -26,7 +26,7 @@
 - Hash calculation implemented properly
     - [x] **+20** Calculate hash for file 
 - Compress and decompress operations
-    - [x] (15/20) **+20** Compress file (using Brotli algorithm)
+    - [x] **+20** Compress file (using Brotli algorithm)
     - [x] **+20** Decompress file (using Brotli algorithm)
 
 ## Advanced Scope
