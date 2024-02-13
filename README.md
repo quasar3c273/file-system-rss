@@ -1,6 +1,8 @@
+```325/330```
+
 # Scoring: File Manager
 ## Basic Scope
-```325/330```
+
 - General
     - [x] **+6** Application accepts username and prints proper message
     - [ ] (+5 pressing `ctrl+c` does not display a message) **+10** Application exits if user pressed `ctrl+c` or sent `.exit` command and proper message is printed
